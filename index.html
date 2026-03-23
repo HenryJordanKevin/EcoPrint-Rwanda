@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoPrint Rwanda | Official Site</title>
+    <title>EcoPrint Rwanda | The Innovation Map</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
@@ -12,62 +12,102 @@
             --primary-green: #2D5A27;
             --accent-orange: #F4A261;
             --path-gray: #e2e8f0;
-            --bg-light: #f4f7f4;
+            --bg-white: #F9FBF9;
         }
 
-        /* RESET & BASICS */
-        * { box-sizing: border-box; margin: 0; padding: 0; scroll-smooth: auto; }
-        body { font-family: 'Open Sans', sans-serif; background-color: #fff; color: #333; line-height: 1.6; }
-        .container { width: 90%; max-width: 1100px; margin: 0 auto; }
-        section { padding: 100px 0; }
-        h2 { font-family: 'Montserrat'; font-size: 2.5rem; text-align: center; margin-bottom: 40px; color: var(--primary-green); }
-
-        /* NAVIGATION */
-        nav { background: white; padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Open Sans', sans-serif; background-color: var(--bg-white); color: #333; }
+        .container { width: 90%; max-width: 1000px; margin: 0 auto; }
+        
+        /* Navigation */
+        nav { background: white; padding: 1.5rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         .nav-content { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-family: 'Montserrat'; font-weight: bold; color: var(--primary-green); font-size: 1.5rem; }
-        .nav-links a { margin-left: 20px; color: #444; font-weight: 600; text-decoration: none; font-size: 0.9rem; }
-        .nav-links a:hover { color: var(--primary-green); }
+        .logo { font-family: 'Montserrat'; font-weight: bold; color: var(--primary-green); font-size: 1.4rem; }
 
-        /* HERO */
+        /* Hero */
         .hero { 
-            height: 80vh; 
-            display: flex; align-items: center; justify-content: center;
+            padding: 100px 0; 
             text-align: center; 
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1536939459926-301728717817?auto=format&fit=crop&w=1200');
-            background-size: cover; background-position: center; color: white;
-            margin-top: 60px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1536939459926-301728717817?auto=format&fit=crop&w=1200');
+            background-size: cover;
+            color: white;
         }
 
-        /* PROCESS MAP (Interactive) */
-        .map-container { position: relative; max-width: 800px; margin: 50px auto; }
-        .map-path { position: absolute; top: 30px; left: 5%; right: 5%; height: 4px; background: var(--path-gray); z-index: 1; }
-        .map-steps { display: flex; justify-content: space-between; position: relative; z-index: 2; }
-        .step-node { width: 60px; height: 60px; background: white; border: 4px solid var(--path-gray); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-weight: bold; transition: 0.3s; }
-        .step-node.active { border-color: var(--primary-green); background: var(--primary-green); color: white; transform: scale(1.1); }
-        .info-card { margin-top: 60px; background: var(--bg-light); padding: 30px; border-radius: 15px; border-left: 8px solid var(--primary-green); }
+        /* MAP SECTION */
+        .map-section { padding: 80px 0; background: #fff; text-align: center; }
+        
+        .map-container {
+            position: relative;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
 
-        /* SUSTAINABILITY / IMPACT */
-        .impact-section { background: var(--primary-green); color: white; }
-        .impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: center; }
-        .impact-item h3 { font-size: 3rem; color: var(--accent-orange); }
+        /* The visual line connecting steps */
+        .map-path {
+            position: absolute;
+            top: 50px;
+            left: 10%;
+            right: 10%;
+            height: 4px;
+            background: var(--path-gray);
+            z-index: 1;
+        }
 
-        /* GALLERY */
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
-        .gallery-item { height: 250px; overflow: hidden; border-radius: 10px; position: relative; }
-        .gallery-item img { width: 100%; height: 100%; object-cover: cover; transition: 0.5s; }
-        .gallery-item:hover img { transform: scale(1.1); }
-        .gallery-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.6); color: white; padding: 10px; opacity: 0; transition: 0.3s; }
-        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        .map-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
 
-        /* CONTACT FORM */
-        .contact-form { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        input, textarea { width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 5px; }
-        .btn-submit { background: var(--primary-green); color: white; border: none; padding: 15px 30px; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold; }
+        .step-node {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border: 4px solid var(--path-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.4s;
+        }
 
-        footer { background: #1a1a1a; color: #888; padding: 50px 0; text-align: center; }
+        .step-node.active {
+            border-color: var(--primary-green);
+            background: var(--primary-green);
+            color: white;
+            transform: scale(1.2);
+            box-shadow: 0 0 20px rgba(45, 90, 39, 0.3);
+        }
 
-        @media (max-width: 768px) { .map-path { display: none; } .map-steps { flex-direction: column; align-items: center; gap: 20px; } }
+        .step-label {
+            position: absolute;
+            top: 70px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #666;
+            width: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Content Card */
+        .info-card {
+            margin-top: 100px;
+            background: #f0f4f0;
+            padding: 40px;
+            border-radius: 20px;
+            min-height: 180px;
+            transition: 0.3s;
+            border-left: 10px solid var(--primary-green);
+        }
+
+        #info-title { font-family: 'Montserrat'; color: var(--primary-green); margin-bottom: 10px; }
+
+        footer { background: var(--primary-green); color: white; padding: 40px 0; text-align: center; margin-top: 50px; }
     </style>
 </head>
 <body>
@@ -75,120 +115,92 @@
     <nav>
         <div class="container nav-content">
             <div class="logo">EcoPrint Rwanda</div>
-            <div class="nav-links">
-                <a href="#process">Process</a>
-                <a href="#impact">Impact</a>
-                <a href="#gallery">Gallery</a>
-                <a href="#contact">Contact</a>
-            </div>
+            <div>Sustainable 3D Labs</div>
         </div>
     </nav>
 
     <header class="hero">
         <div class="container">
-            <h1 style="font-size: 3.5rem; font-family: Montserrat;">Waste to Worth</h1>
-            <p style="font-size: 1.2rem; margin-top: 10px;">Rwanda's first community-led recycled 3D printing initiative.</p>
+            <h1 style="font-family: Montserrat; font-size: 2.5rem;">The Circular Journey</h1>
+            <p>Trace the path of a plastic bottle from waste to wonder.</p>
         </div>
     </header>
 
-    <section id="process">
+    <section class="map-section">
         <div class="container">
-            <h2>The Innovation Journey</h2>
+            <h2 style="font-family: Montserrat;">Explore Our Process Map</h2>
+            <p>Click on each station to see how we innovate</p>
+
             <div class="map-container">
                 <div class="map-path"></div>
+
                 <div class="map-steps">
-                    <div class="step-node active" onclick="updateMap(1, this)">1</div>
-                    <div class="step-node" onclick="updateMap(2, this)">2</div>
-                    <div class="step-node" onclick="updateMap(3, this)">3</div>
-                    <div class="step-node" onclick="updateMap(4, this)">4</div>
+                    <div class="step-wrapper" style="position: relative;">
+                        <div class="step-node active" onclick="updateMap(1, this)">1</div>
+                        <div class="step-label">Collection</div>
+                    </div>
+                    <div class="step-wrapper" style="position: relative;">
+                        <div class="step-node" onclick="updateMap(2, this)">2</div>
+                        <div class="step-label">Processing</div>
+                    </div>
+                    <div class="step-wrapper" style="position: relative;">
+                        <div class="step-node" onclick="updateMap(3, this)">3</div>
+                        <div class="step-label">Extrusion</div>
+                    </div>
+                    <div class="step-wrapper" style="position: relative;">
+                        <div class="step-node" onclick="updateMap(4, this)">4</div>
+                        <div class="step-label">Printing</div>
+                    </div>
                 </div>
+
                 <div class="info-card" id="info-box">
                     <h3 id="info-title">Station 1: Waste Collection</h3>
-                    <p id="info-text">Gathering plastic bottles across Kigali to clean our environment.</p>
+                    <p id="info-text">Our journey starts in the streets of Kigali, where we recover plastic that would otherwise pollute our beautiful hills and waterways.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="impact" class="impact-section">
-        <div class="container">
-            <h2 style="color: white;">Our Sustainability Impact</h2>
-            <div class="impact-grid">
-                <div class="impact-item"><h3>5T+</h3><p>Plastic Recycled</p></div>
-                <div class="impact-item"><h3>12k</h3><p>Tools Printed</p></div>
-                <div class="impact-item"><h3>100%</h3><p>Solar Powered</p></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="gallery">
-        <div class="container">
-            <h2>Product Gallery</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1615811128333-57d6725e3bc3?auto=format&fit=crop&w=500" alt="3D Printed Gear">
-                    <div class="gallery-overlay">Industrial Spare Parts</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?auto=format&fit=crop&w=500" alt="School Kits">
-                    <div class="gallery-overlay">Recycled School Rulers</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1531265726475-52ad60219627?auto=format&fit=crop&w=500" alt="Filament">
-                    <div class="gallery-overlay">Our Recycled Filament</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" style="background-color: var(--bg-light);">
-        <div class="container">
-            <h2>Join the Movement</h2>
-            <form class="contact-form" id="ecoForm">
-                <input type="text" id="name" placeholder="Your Name" required>
-                <input type="email" id="email" placeholder="Your Email" required>
-                <textarea id="message" rows="5" placeholder="How can we work together?" required></textarea>
-                <button type="button" class="btn-submit" onclick="validateForm()">Send Message</button>
-                <p id="form-status" style="margin-top: 15px; color: var(--primary-green); font-weight: bold; display: none;">Thank you! We will contact you soon.</p>
-            </form>
         </div>
     </section>
 
     <footer>
-        <div class="container">
-            <p>© 2026 EcoPrint Rwanda | KIGALI | Rwanda</p>
-        </div>
+        <p>© 2026 EcoPrint Rwanda - Printing a Greener Tomorrow</p>
     </footer>
 
     <script>
-        // MAP DATA
+        // Content Data
         const mapData = {
-            1: { title: "Station 1: Waste Collection", text: "Gathering plastic bottles across Kigali to clean our environment." },
-            2: { title: "Station 2: Processing", text: "Sorting and shredding plastic into clean, printable flakes." },
-            3: { title: "Station 3: Filament Extrusion", text: "Melting flakes into strong 3D printing wire." },
-            4: { title: "Station 4: Community Printing", text: "Creating tools and parts for local schools and clinics." }
+            1: {
+                title: "Station 1: Waste Collection",
+                text: "Our journey starts in the streets of Kigali, where we recover plastic that would otherwise pollute our beautiful hills and waterways."
+            },
+            2: {
+                title: "Station 2: Cleaning & Shredding",
+                text: "The plastic is sorted by type, thoroughly washed, and shredded into tiny flakes to prepare for its transformation."
+            },
+            3: {
+                title: "Station 3: Filament Production",
+                text: "We melt the flakes and pull them into thin, strong strands of 'eco-filament' - the ink for our 3D printers."
+            },
+            4: {
+                title: "Station 4: Local Manufacturing",
+                text: "Finally, we print school supplies, prosthetic parts, and machine components to support the Rwandan economy."
+            }
         };
 
         function updateMap(step, element) {
-            document.getElementById('info-title').innerText = mapData[step].title;
-            document.getElementById('info-text').innerText = mapData[step].text;
+            // 1. Update Content with a fade effect
+            const infoBox = document.getElementById('info-box');
+            infoBox.style.opacity = 0;
+            
+            setTimeout(() => {
+                document.getElementById('info-title').innerText = mapData[step].title;
+                document.getElementById('info-text').innerText = mapData[step].text;
+                infoBox.style.opacity = 1;
+            }, 200);
+
+            // 2. Update Active Circle
             const nodes = document.querySelectorAll('.step-node');
-            nodes.forEach(n => n.classList.remove('active'));
+            nodes.forEach(node => node.classList.remove('active'));
             element.classList.add('active');
-        }
-
-        // FORM VALIDATION
-        function validateForm() {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const status = document.getElementById('form-status');
-
-            if(name === "" || email === "") {
-                alert("Please fill in your name and email.");
-            } else {
-                status.style.display = "block";
-                document.getElementById('ecoForm').reset();
-            }
         }
     </script>
 </body>
